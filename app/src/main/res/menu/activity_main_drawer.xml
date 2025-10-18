@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_slideshow"
+        android:title="@string/menu_inicio" />
+
+        <item
+            android:id="@+id/nav_perfil"
+            android:icon="@drawable/perfil"
+            android:title="@string/menu_perfil" />
+
+        <item
+            android:id="@+id/nav_inmuebles"
+            android:icon="@drawable/inmuebles"
+            android:title="@string/menu_inmuebles" />
+
+        <item
+            android:id="@+id/nav_inquilinos"
+            android:icon="@drawable/inquilinos"
+        android:title="@string/menu_inquilinos" />
+
+        <item
+            android:id="@+id/nav_contratos"
+            android:icon="@drawable/contrato"
+            android:title="@string/menu_contratos" />
+
+    </group>
+
+    <item
+        android:id="@+id/nav_cerrar_sesion"
+        android:icon="@drawable/logout"
+        android:title="Salir" />
+</menu>
+

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutContrasena"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F38DC4CE"
+    tools:context=".ui.perfil.ContraseniaFragment">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/tvTituloContrasena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🔒 CAMBIAR CONTRASEÑA"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#003366"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="72dp"/>
+
+    <!-- Contraseña actual -->
+    <EditText
+        android:id="@+id/etActual"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Contraseña actual"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:backgroundTint="#003366"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloContrasena"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="32dp"/>
+
+    <!-- Nueva contraseña -->
+    <EditText
+        android:id="@+id/etNueva"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Nueva contraseña"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:backgroundTint="#003366"
+        app:layout_constraintTop_toBottomOf="@id/etActual"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Confirmar nueva contraseña -->
+    <EditText
+        android:id="@+id/etConfirmar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Confirmar nueva contraseña"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:backgroundTint="#003366"
+        app:layout_constraintTop_toBottomOf="@id/etNueva"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Botón Guardar -->
+    <Button
+        android:id="@+id/btGuardarContrasenia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:backgroundTint="#0055AA"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/etConfirmar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="24dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
