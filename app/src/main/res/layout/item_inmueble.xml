@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/idCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardUseCompatPadding="true"
+    app:cardBackgroundColor="#F38DC4CE"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp"
+    app:contentPadding="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Dirección -->
+        <TextView
+            android:id="@+id/tvDireccion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Belgrano 123"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#003366"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Tipo -->
+        <TextView
+            android:id="@+id/tvTipo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Departamento"
+            android:textSize="14sp"
+            android:textColor="#003366"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tvDireccion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Precio -->
+        <TextView
+            android:id="@+id/tvPrecio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="$170000.0"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#0055AA"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tvTipo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Imagen del inmueble -->
+        <ImageView
+            android:id="@+id/imgInmueble"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="12dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toBottomOf="@id/tvPrecio"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:src="@tools:sample/avatars" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -33,7 +33,7 @@ public class PerfilFragment extends Fragment {
             if (p == null) return;
             binding.etnombre.setText(p.getNombre());
             binding.etapellido.setText(p.getApellido());
-            binding.etdni.setText(p.getDni());
+            binding.etdni.setText(Integer.toString(p.getDni()));
             binding.ettelefono.setText(p.getTelefono());
             binding.etemail.setText(p.getEmail());
         });
@@ -53,23 +53,20 @@ public class PerfilFragment extends Fragment {
                 s -> binding.bteditar.setText(s));
 
         // Click Editar/Guardar
+
         binding.bteditar.setOnClickListener(v -> {
-            String txt = binding.bteditar.getText().toString();
+            String txt   = binding.bteditar.getText().toString();
+            String nom   = binding.etnombre.getText().toString().trim();
+            String ap    = binding.etapellido.getText().toString().trim();
+            String dni   = binding.etdni.getText().toString().trim();
+            String email = binding.etemail.getText().toString().trim();
+            String tel   = binding.ettelefono.getText().toString().trim();
 
-            if (txt.equalsIgnoreCase("Editar perfil")) {
-                // Solo cambiar a modo edición
-                mViewModel.guardarEditar(txt, null, null, null, null, null);
-            } else {
-                // Enviar datos editados para guardar
-                String nom   = binding.etnombre.getText().toString().trim();
-                String ap    = binding.etapellido.getText().toString().trim();
-                String dni   = binding.etdni.getText().toString().trim();
-                String email = binding.etemail.getText().toString().trim();
-                String tel   = binding.ettelefono.getText().toString().trim();
+            mViewModel.guardarEditar(txt, nom, ap, dni, email, tel);
 
-                mViewModel.guardarEditar(txt, nom, ap, dni, email, tel);
-            }
         });
+
+
 
         // Click Cambiar contraseña -> navega al fragment de contraseña
         binding.btcambiarContrasena.setOnClickListener(v ->

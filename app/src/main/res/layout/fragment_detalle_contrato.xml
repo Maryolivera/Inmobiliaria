@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F38DC4CE"
+    android:paddingHorizontal="32dp"
+    android:paddingTop="32dp"
+    android:paddingBottom="16dp">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/tvTituloContrato"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Información del contrato"
+        android:textColor="#003366"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:gravity="start"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Código de contrato -->
+    <TextView
+        android:id="@+id/tvCodigoContrato"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Código de contrato:"
+        android:textColor="#003366"
+        android:textSize="18sp"
+        android:gravity="start"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloContrato"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Fecha de inicio -->
+    <TextView
+        android:id="@+id/tvFechaInicio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Fecha de inicio:"
+        android:textColor="#003366"
+        android:textSize="18sp"
+        android:gravity="start"
+        app:layout_constraintTop_toBottomOf="@id/tvCodigoContrato"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Fecha de finalización -->
+    <TextView
+        android:id="@+id/tvFechaFinalizacion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Fecha de finalización:"
+        android:textColor="#003366"
+        android:textSize="18sp"
+        android:gravity="start"
+        app:layout_constraintTop_toBottomOf="@id/tvFechaInicio"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Monto del alquiler -->
+    <TextView
+        android:id="@+id/tvMontoAlquiler"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Monto del alquiler:"
+        android:textColor="#003366"
+        android:textSize="18sp"
+        android:gravity="start"
+        app:layout_constraintTop_toBottomOf="@id/tvFechaFinalizacion"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Estado del contrato -->
+    <TextView
+        android:id="@+id/tvEstadoContrato"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Estado:"
+        android:textColor="#003366"
+        android:textSize="18sp"
+        android:gravity="start"
+        app:layout_constraintTop_toBottomOf="@id/tvMontoAlquiler"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Botón PAGOS -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPagos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PAGOS"
+        android:textAllCaps="true"
+        android:textSize="14sp"
+        android:textColor="@android:color/white"
+        app:cornerRadius="24dp"
+        app:backgroundTint="#0055AA"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/tvEstadoContrato"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

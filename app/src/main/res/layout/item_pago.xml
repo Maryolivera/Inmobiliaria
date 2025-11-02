@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardPago"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardUseCompatPadding="true"
+    app:cardBackgroundColor="#F38DC4CE"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp"
+    app:contentPadding="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Fecha del pago -->
+        <TextView
+            android:id="@+id/tvFechaPago"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Fecha: 10/04/2024"
+            android:textStyle="bold"
+            android:textColor="#003366"
+            android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Monto -->
+        <TextView
+            android:id="@+id/tvMontoPago"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Monto: $23.00"
+            android:textColor="#003366"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tvFechaPago"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Detalle -->
+        <TextView
+            android:id="@+id/tvDetallePago"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Detalle: Mes abril"
+            android:textColor="#003366"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tvMontoPago"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Estado -->
+        <TextView
+            android:id="@+id/tvEstadoPago"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Estado: Pagado"
+            android:textColor="#003366"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tvDetallePago"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

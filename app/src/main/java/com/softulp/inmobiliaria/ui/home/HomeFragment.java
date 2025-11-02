@@ -31,9 +31,9 @@ public class HomeFragment extends Fragment {
         mViewModel.getMapaActual().observe(getViewLifecycleOwner(), mapaActual -> {
             SupportMapFragment mapFragment =
                     (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.mapa);
-            if (mapFragment != null) {
-                mapFragment.getMapAsync(mapaActual);
-            }
+
+            mapFragment.getMapAsync(mapaActual);
+
         });
 
         // Dispara la carga del mapa

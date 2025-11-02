@@ -1,13 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutInquilinos"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F38DC4CE"
     tools:context=".ui.inquilinos.InquilinosFragment">
 
+    <!-- Título -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:id="@+id/tvTituloInquilinos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Inquilinos"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:textColor="#003366"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
 
-</FrameLayout>
+    <!-- Lista -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvInquilinos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloInquilinos"
+        tools:listitem="@layout/item_inquilino" />
+
+    <!-- Estado vacío -->
+    <TextView
+        android:id="@+id/tvEmptyInquilinos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No hay inquilinos cargados"
+        android:textColor="#003366"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloInquilinos"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

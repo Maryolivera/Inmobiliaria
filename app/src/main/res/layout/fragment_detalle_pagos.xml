@@ -3,18 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layoutContratos"
+    android:id="@+id/layoutPagos"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F38DC4CE"
-    tools:context=".ui.contratos.ContratosFragment">
+    tools:context=".ui.contratos.DetallePagosFragment">
 
     <!-- Título -->
     <TextView
-        android:id="@+id/tvTituloContratos"
+        android:id="@+id/tvTituloPagos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Contratos"
+        android:text="Pagos"
         android:textStyle="bold"
         android:textSize="22sp"
         android:textColor="#003366"
@@ -28,29 +28,28 @@
 
     <!-- Lista -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvContratos"
+        android:id="@+id/rvPagos"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTituloContratos"
-        tools:listitem="@layout/item_contrato" />
+        app:layout_constraintTop_toBottomOf="@id/tvTituloPagos"
+        tools:listitem="@layout/item_pago" />
 
     <!-- Estado vacío -->
     <TextView
-        android:id="@+id/tvEmptyContratos"
+        android:id="@+id/tvEmptyPagos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No hay contratos cargados"
+        android:text="No hay pagos registrados"
         android:textColor="#003366"
         android:textSize="16sp"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/tvTituloContratos"
+        app:layout_constraintTop_toBottomOf="@id/tvTituloPagos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

@@ -77,7 +77,7 @@ public class PerfilViewModel extends AndroidViewModel {
         p.setIdPropietario(actual.getIdPropietario());
         p.setNombre(nom.trim());
         p.setApellido(ap.trim());
-        p.setDni(dni.trim());
+        p.setDni(Integer.parseInt(dni.trim()) );
         p.setEmail(email.trim());
         p.setTelefono(tel.trim());
 
@@ -91,8 +91,8 @@ public class PerfilViewModel extends AndroidViewModel {
                             mp.postValue(r.body());
                             Toast.makeText(getApplication(), "Actualizado correctamente", Toast.LENGTH_SHORT).show();
                             // salir de edición
-                            bMestado.setValue(false);
-                            mTexto.setValue("Editar perfil");
+                            bMestado.postValue(false);
+                            mTexto.postValue("Editar perfil");
                         } else {
                             Toast.makeText(getApplication(),
                                     "Error al actualizar (" + r.code() + ")", Toast.LENGTH_LONG).show();

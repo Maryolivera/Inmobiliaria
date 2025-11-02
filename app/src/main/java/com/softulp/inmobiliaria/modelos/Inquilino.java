@@ -2,37 +2,34 @@ package com.softulp.inmobiliaria.modelos;
 
 import java.io.Serializable;
 
-public class Propietario implements Serializable {
+public class Inquilino implements Serializable {
 
-    private int idPropietario;
+    private int idInquilino;
     private String nombre;
     private String apellido;
     private int dni;
     private String telefono;
     private String email;
-    private String clave;
 
-    public Propietario(int idPropietario, String nombre, String apellido, int dni, String telefono, String email, String clave) {
-        this.idPropietario = idPropietario;
+    public Inquilino() {
+    }
+
+    public Inquilino(int idInquilino, String nombre, String apellido, int dni, String telefono, String email) {
+        this.idInquilino = idInquilino;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.telefono = telefono;
         this.email = email;
-        this.clave = clave;
     }
-
-
-
-    public Propietario() { }
 
     // Getters y Setters
-    public int getIdPropietario() {
-        return idPropietario;
+    public int getIdInquilino() {
+        return idInquilino;
     }
 
-    public void setIdPropietario(int idPropietario) {
-        this.idPropietario = idPropietario;
+    public void setIdInquilino(int idInquilino) {
+        this.idInquilino = idInquilino;
     }
 
     public String getNombre() {
@@ -75,14 +72,8 @@ public class Propietario implements Serializable {
         this.email = email;
     }
 
-    public String getClave() {
-        return clave;
-    }
 
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
+
 }
-
 
 
