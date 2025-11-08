@@ -24,7 +24,7 @@ public class ContratosViewModel extends AndroidViewModel {
 
     public ContratosViewModel(@NonNull Application application) {
         super(application);
-        leerContratos(); // Igual que en Inquilinos, lo llamamos al crear
+        leerContratos();
     }
 
     public LiveData<String> getmText() {
@@ -43,7 +43,7 @@ public class ContratosViewModel extends AndroidViewModel {
         String token = ApiClient.leerToken(getApplication());
         ApiClient.InmoService api = ApiClient.getInmoService();
 
-        // Es el mismo endpoint que usás para listar inmuebles con contrato vigente
+
         Call<List<Inmueble>> llamada = api.obtenerInmueblesConContratoVigente("Bearer " + token);
 
         llamada.enqueue(new Callback<List<Inmueble>>() {

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.softulp.inmobiliaria.R;
 import com.softulp.inmobiliaria.modelos.Pago;
+import com.softulp.inmobiliaria.utilidades.Utilidades;
 
 import java.util.List;
 
@@ -36,23 +37,18 @@ public class DetallePagosAdapter extends RecyclerView.Adapter<DetallePagosAdapte
     @Override
     public void onBindViewHolder(@NonNull PagoViewHolder holder, int position) {
         Pago p = lista.get(position);
+        String fecha = p.getFechaPago();
+        holder.tvFechaPago.setText(
+                (fecha != null && !fecha.isEmpty())
+                        ? Utilidades.formatearFecha(fecha)
+                        : ""
+        );
 
-        // Fecha (si tenés getFechaPagoFormateada(), usala; si no, getFechaPago())
-        String fecha = (p.getFechaPago() != null) ? p.getFechaPago() : "";
-        holder.tvFechaPago.setText("Fecha: " + fecha);
 
-        // Monto
-        holder.tvMontoPago.setText("Monto: $ " + p.getMonto());
-
-        // Detalle (opcional)
-        if (holder.tvDetallePago != null) {
-            holder.tvDetallePago.setText("Detalle: " + (p.getDetalle() != null ? p.getDetalle() : ""));
-        }
-
-        // Estado
-        if (holder.tvEstadoPago != null) {
-            holder.tvEstadoPago.setText("Estado: " + (p.isEstado() ? "Pagado" : "Pendiente"));
-        }
+        holder.tvMontoPago.setText(Utilidades.formatearMoneda(p.getMonto()));
+        String det = p.getDetalle();
+        holder.tvDetallePago.setText(det != null ? det : "");
+        holder.tvEstadoPago.setText(p.isEstado() ? "Pagado" : "Anulado");
     }
 
     @Override
@@ -69,9 +65,8 @@ public class DetallePagosAdapter extends RecyclerView.Adapter<DetallePagosAdapte
             cardPago      = itemView.findViewById(R.id.cardPago);
             tvFechaPago   = itemView.findViewById(R.id.tvFechaPago);
             tvMontoPago   = itemView.findViewById(R.id.tvMontoPago);
-            tvDetallePago = itemView.findViewById(R.id.tvDetallePago); // puede ser null si lo quitaste del XML
-            tvEstadoPago  = itemView.findViewById(R.id.tvEstadoPago);  // puede ser null si lo quitaste del XML
+            tvDetallePago = itemView.findViewById(R.id.tvDetallePago);
+            tvEstadoPago  = itemView.findViewById(R.id.tvEstadoPago);
         }
     }
 }
-

@@ -31,42 +31,39 @@ public class DetalleInquilinoViewModel extends AndroidViewModel {
     }
 
     public void cargarInquilinoDesdeInmueble(Bundle args) {
-        if (args == null) return;
+        if (args == null) {
+            Toast.makeText(getApplication(), "Error: argumentos no recibidos.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         Inmueble inm = (Inmueble) args.getSerializable("inmueble");
-        if (inm == null) return;
+        if (inm == null) {
+            Toast.makeText(getApplication(), "Error: inmueble no encontrado.", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-
-
-        //  pedimos el contrato por inmueble y de ahí sacamos el inquilino
         String token = ApiClient.leerToken(getApplication());
-        ApiClient.InmoService api = ApiClient.getInmoService();
+        ApiClient.getInmoService()
+                .obtenerContratoPorInmueble("Bearer " + token, inm.getIdInmueble())
+                .enqueue(new Callback<Contrato>() {
+                    @Override
+                    public void onResponse(Call<Contrato> call, Response<Contrato> response) {
+                        if (response.isSuccessful() && response.body() != null) {
+                            Contrato c = response.body();
+                            if (c.getInquilino() != null) {
+                                inquilino.postValue(c.getInquilino());
+                            } else {
+                                Toast.makeText(getApplication(), "Sin datos de inquilino para este inmueble.", Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(getApplication(), "No se pudo obtener el contrato: " + response.message(), Toast.LENGTH_LONG).show();
+                        }
+                    }
 
-        Call<Contrato> call = api.obtenerContratoPorInmueble("Bearer " + token, inm.getIdInmueble());
-        call.enqueue(new Callback<Contrato>() {
-            @Override
-            public void onResponse(Call<Contrato> call, Response<Contrato> response) {
-                if (!response.isSuccessful()) {
-                    Toast.makeText(getApplication(),
-                            "No se pudo obtener el contrato: " + response.message(),
-                            Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                Contrato c = response.body();
-                if (c != null && c.getInquilino() != null) {
-                    inquilino.postValue(c.getInquilino());
-                } else {
-                    Toast.makeText(getApplication(),
-                            "Sin datos de inquilino para este inmueble.",
-                            Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Contrato> call, Throwable t) {
-                Toast.makeText(getApplication(),
-                        "Error servidor: " + t.getMessage(),
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
+                    @Override
+                    public void onFailure(Call<Contrato> call, Throwable t) {
+                        Toast.makeText(getApplication(), "Error de servidor: " + t.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
     }
 }

@@ -20,12 +20,11 @@ public class DetalleInquilinoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+
         binding = FragmentDetalleInquilinoBinding.inflate(inflater, container, false);
         vm = new ViewModelProvider(this).get(DetalleInquilinoViewModel.class);
 
         vm.getInquilino().observe(getViewLifecycleOwner(), inq -> {
-            if (inq == null) return;
-            binding.tvCodigoInquilino.setText("Código: " + inq.getIdInquilino());
             binding.tvNombreInquilino.setText("Nombre: " + inq.getNombre());
             binding.tvApellidoInquilino.setText("Apellido: " + inq.getApellido());
             binding.tvDniInquilino.setText("DNI: " + inq.getDni());
@@ -33,9 +32,7 @@ public class DetalleInquilinoFragment extends Fragment {
             binding.tvEmailInquilino.setText("Email: " + inq.getEmail());
         });
 
-        // Usa el inmueble que enviaste desde el adapter
         vm.cargarInquilinoDesdeInmueble(getArguments());
-
         return binding.getRoot();
     }
 

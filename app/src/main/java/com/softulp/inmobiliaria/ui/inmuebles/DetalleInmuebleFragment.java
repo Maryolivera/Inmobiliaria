@@ -18,6 +18,7 @@ import com.softulp.inmobiliaria.databinding.FragmentDetalleInmuebleBinding;
 
 
 import com.softulp.inmobiliaria.request.ApiClient;
+import com.softulp.inmobiliaria.utilidades.Utilidades;
 
 public class DetalleInmuebleFragment extends Fragment {
 
@@ -42,7 +43,8 @@ public class DetalleInmuebleFragment extends Fragment {
             binding.tvAmbientesI.setText(inmueble.getAmbientes() + "");
             binding.tvLatitudI.setText(inmueble.getLatitud() + "");
             binding.tvLongitudI.setText(inmueble.getLongitud() + "");
-            binding.tvValorI.setText(inmueble.getValor() + "");
+            binding.tvValorI.setText(Utilidades.formatearMoneda(inmueble.getValor()));
+
             Glide.with(this)
                     .load(ApiClient.URLBASE + inmueble.getImagen())
                     .placeholder(R.drawable.outline_home_24)

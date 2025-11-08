@@ -13,6 +13,8 @@
     <string name="menu_inquilinos">Inquilinos</string>
     <string name="menu_contratos">Contratos</string>
     <string name="menu_cerrar_sesion">Logout</string>
-<!-- TODO: Remove or change this placeholder text -->
+    <string name="agency_phone">2664346700</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

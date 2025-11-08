@@ -24,40 +24,37 @@ public class InquilinosViewModel extends AndroidViewModel {
 
     public InquilinosViewModel(@NonNull Application application) {
         super(application);
-        leerInquilinos(); // Lo llamo acá directamente, en el constructor
+
     }
 
-    public LiveData<String> getmText() {
-        return mText;
-    }
+    public LiveData<String> getmText() { return mText; }
 
-    public LiveData<List<Inmueble>> getmInmueble() {
-        return mInmueble;
-    }
+    public LiveData<List<Inmueble>> getmInmueble() { return mInmueble; }
 
-    public LiveData<String> getText() {
-        return mText;
-    }
+    public LiveData<String> getText() { return mText; }
 
     public void leerInquilinos() {
         String token = ApiClient.leerToken(getApplication());
         ApiClient.InmoService api = ApiClient.getInmoService();
         Call<List<Inmueble>> llamada = api.obtenerInmueblesConContratoVigente("Bearer " + token);
-        llamada.enqueue(new Callback<List<Inmueble>>() {
 
+        llamada.enqueue(new Callback<List<Inmueble>>() {
             @Override
             public void onResponse(Call<List<Inmueble>> call, Response<List<Inmueble>> response) {
                 if (response.isSuccessful()) {
-
-                    mInmueble.postValue(response.body());
+                    mInmueble.postValue(response.body()); // async postValue
                 } else {
-                    Toast.makeText(getApplication(), "No hay inquilinos con contrato vigente: " + response.message(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplication(),
+                            "No hay inquilinos con contrato vigente: " + response.message(),
+                            Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<List<Inmueble>> call, Throwable t) {
-                Toast.makeText(getApplication(), "Error en servidor: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplication(),
+                        "Error en servidor: " + t.getMessage(),
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }

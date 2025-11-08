@@ -11,7 +11,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.softulp.inmobiliaria.databinding.FragmentDetalleContratoBinding;
-import com.softulp.inmobiliaria.modelos.Contrato;
+
+import com.softulp.inmobiliaria.utilidades.Utilidades;
 
 public class DetalleContratoFragment extends Fragment {
 
@@ -29,10 +30,14 @@ public class DetalleContratoFragment extends Fragment {
 
         vm.getContrato().observe(getViewLifecycleOwner(), c -> {
 
+            //   FORMATEADOR EN LA FECHA
+            String fechaInicioFormateada = Utilidades.formatearFecha(c.getFechaInicio());
+            String fechaFinFormateada = Utilidades.formatearFecha(c.getFechaFinalizacion());
+
             binding.tvCodigoContrato.setText("Código de contrato: " + c.getIdContrato());
-            binding.tvFechaInicio.setText("Fecha de inicio: " + c.getFechaInicio());
-            binding.tvFechaFinalizacion.setText("Fecha de finalización: " + c.getFechaFinalizacion());
-            binding.tvMontoAlquiler.setText("Monto del alquiler: $" + c.getMontoAlquiler());
+            binding.tvFechaInicio.setText("Fecha de inicio: " + fechaInicioFormateada);
+            binding.tvFechaFinalizacion.setText("Fecha de finalización: " + fechaFinFormateada);
+            binding.tvMontoAlquiler.setText("Monto del alquiler: " + Utilidades.formatearMoneda(c.getMontoAlquiler()));
             binding.tvEstadoContrato.setText("Estado: " + (c.isEstado() ? "Vigente" : "Finalizado"));
 
             // Activar botón PAGOS y navegar al fragment de pagos

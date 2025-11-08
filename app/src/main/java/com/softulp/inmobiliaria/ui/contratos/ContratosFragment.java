@@ -21,7 +21,7 @@ import java.util.List;
 
 public class ContratosFragment extends Fragment {
 
-    private FragmentContratoBinding binding; // Asegúrate que el layout se llame fragment_contratos.xml
+    private FragmentContratoBinding binding;
     private ContratosViewModel vm;
 
     @Override
@@ -36,7 +36,7 @@ public class ContratosFragment extends Fragment {
         vm.getmInmueble().observe(getViewLifecycleOwner(), new Observer<List<Inmueble>>() {
             @Override
             public void onChanged(List<Inmueble> inmuebles) {
-                // ✅ Toast de verificación (usa requireContext)
+
                 Toast.makeText(requireContext(),
                         "Contratos: " + (inmuebles != null ? inmuebles.size() : -1),
                         Toast.LENGTH_SHORT).show();
